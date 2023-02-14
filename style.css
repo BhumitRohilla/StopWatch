@@ -1,0 +1,100 @@
+body{
+    background-color: black;
+    font-family: 'Inter', sans-serif;
+}
+
+#timer-div{
+    color: #f37740;
+    text-align: center;
+    font-size: 30px;
+}
+
+.gen-btn{
+    width: 76px;
+    height: 76px;
+    border-radius: 38px; 
+    outline: none;
+    border: none;
+    border: 2px solid black;
+    font-size: 20px;
+}
+
+#lap-btn{
+    color: white;
+    background-color: #2b2b2b;
+    outline: 2px solid #2b2b2b;
+}
+
+#lap-btn:hover{
+    background-color: #585858;
+    outline: 2px solid #464545;
+}
+
+#stop-btn{
+    background-color: #351613;
+    color: #be2b24;
+    outline: 2px solid #351613;
+}
+
+
+#stop-btn:hover{
+    background-color: #5c2723;
+    outline: 2px solid #5c2723;
+}
+
+#lap-btn:active{
+    background-color: #1b1b1b;
+    outline: 2px solid #1b1b1b;
+}
+#stop-btn:active{
+    background-color: #1d0c0b;
+    outline: 2px solid #1d0c0b;   
+}
+
+#start-btn{
+    background-color: #5faa18;
+    color: #2b5e02;
+    outline: 2px solid #5faa18;
+}
+#start-btn:hover{
+    background-color: #97f340;
+
+}
+
+#btn-holder{
+    display: flex;
+    justify-content: space-around;
+}
+
+#main{
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    max-width: 831px;
+    margin: 0 auto;
+}
+
+#lap-box{
+    height: 40vh;
+    width: 80%;
+    margin: 0 auto;
+    /* background-color: #1b1b1b; */
+    overflow: scroll;
+    color: white;
+    line-height: 2;
+    list-style: none;
+}
+
+.lap-li{
+    text-align: center;
+    font-size: 30px;
+    border-top: 2px gray solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.li-p{
+    color: gray;
+}
