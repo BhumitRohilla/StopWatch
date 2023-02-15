@@ -105,3 +105,7 @@ body{
     color:  darkblue;
     font-size: 18px;
 }
+
+#reset:hover{
+    background-color: rgb(145, 145, 255);
+}

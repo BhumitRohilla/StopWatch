@@ -86,4 +86,5 @@ function reset(){
     milliSec = 0;
     sec = 0;
     min = 0;
+    lapCounter = 0;
 }
