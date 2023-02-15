@@ -87,4 +87,5 @@ function reset(){
     sec = 0;
     min = 0;
     lapCounter = 1;
+    startStopButton.innerHTML = "Start"
 }
