@@ -98,3 +98,10 @@ body{
 .li-p{
     color: gray;
 }
+
+#reset{
+    background-color: rgb(120, 120, 241);
+    outline: 2px solid rgb(120, 120, 241);
+    color:  darkblue;
+    font-size: 18px;
+}

@@ -6,20 +6,21 @@ let startStopButton = document.getElementById("start-btn");
 let timer = document.getElementById("timer");
 let lapDiv = document.getElementById("lap-box");
 let intervalId;
-let lapCounter = 0;
+let lapCounter = 1;
+
+let clockRunning = false;
 
 lapButton.addEventListener("click",lapFunction)
 startStopButton.addEventListener("click", startButton);
     // console.log("Start");
 
 function lapFunction(){
-    let value = timer.innerHTML;
+    if(clockRunning == false){
+        return ;
+    }
+    let value = timer.innerHTML;   
     let liItem = document.createElement("li");
     liItem.classList.add("lap-li");
-    // console.log(lapDiv);
-    //document.createElement("div").appendChild(liItem)
-    //document.createElement("div").appendChild(document.createElement("p").innerHTML = `Lap ${lapCounter}`)
-    
     let p1 = document.createElement("p");
     p1.classList.add("li-p");
     p1.innerText = `Lap ${lapCounter}`
@@ -31,22 +32,14 @@ function lapFunction(){
     liItem.appendChild(p1);
     liItem.appendChild(p2);
 
-    lapDiv.insertAdjacentElement("afterbegin",liItem);
+    lapDiv.appendChild(liItem);
     
 
     lapCounter++;
 }
 
 function startButton(){
-    let listElementOfLi = document.querySelectorAll(".lap-li")
-    console.log(listElementOfLi);
-    listElementOfLi.forEach((element)=>{
-        element.remove();
-    });
-    timer.innerHTML = "00 : 00 : 00"
-    milliSec = 0;
-    sec = 0;
-    min = 0;
+    clockRunning = true; 
     intervalId = setInterval(function(){
         milliSec++;
         sec += parseInt(milliSec /100);
@@ -58,15 +51,39 @@ function startButton(){
         var minString = (min > 9)?(min.toString()):'0'+min;
         timer.innerHTML = ` ${minString} : ${secString} : ${milliString} `
     },1);
+
+    lapButton.setAttribute("id","lap-btn");
+    lapButton.innerHTML = "Lap";
+    lapButton.removeEventListener("click",reset);
+    lapButton.addEventListener("click",lapFunction);
+    startStopButton.innerHTML = "Stop";
     startStopButton.setAttribute("id","stop-btn")
     startStopButton.removeEventListener("click",startButton);
     startStopButton.addEventListener("click", stopButton);
 }
 
 function stopButton(){
+    clockRunning = false;
     console.log("stop");
     clearInterval(intervalId);
+    startStopButton.innerHTML = "Restart";
     startStopButton.setAttribute("id","start-btn");
+    lapButton.removeEventListener("click", lapFunction);
+    lapButton.innerHTML = "Reset";
+    lapButton.setAttribute("id","reset");
+    lapButton.addEventListener("click",reset);
     startStopButton.removeEventListener("click",stopButton);
     startStopButton.addEventListener("click",startButton);
+}
+
+function reset(){
+    let listElementOfLi = document.querySelectorAll(".lap-li")
+    console.log(listElementOfLi);
+    listElementOfLi.forEach((element)=>{
+        element.remove();
+    });
+    timer.innerHTML = "00 : 00 : 00";
+    milliSec = 0;
+    sec = 0;
+    min = 0;
 }
