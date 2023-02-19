@@ -87,5 +87,7 @@ function reset(){
     sec = 0;
     min = 0;
     lapCounter = 1;
+    lapButton.setAttribute("id","lap-btn");
+    lapButton.innerHTML = "Lap";
     startStopButton.innerHTML = "Start"
 }
