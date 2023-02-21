@@ -50,7 +50,7 @@ function startButton(){
         var secString = (sec > 9)?(sec.toString()):'0'+sec;
         var minString = (min > 9)?(min.toString()):'0'+min;
         timer.innerHTML = ` ${minString} : ${secString} : ${milliString} `
-    },1);
+    },10);
 
     lapButton.setAttribute("id","lap-btn");
     lapButton.innerHTML = "Lap";
