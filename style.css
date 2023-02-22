@@ -109,3 +109,7 @@ body{
 #reset:hover{
     background-color: rgb(145, 145, 255);
 }
+
+#lap-box::-webkit-scrollbar {
+    display: none;
+  }
