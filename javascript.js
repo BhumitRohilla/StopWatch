@@ -7,6 +7,11 @@ let timer = document.getElementById("timer");
 let lapDiv = document.getElementById("lap-box");
 let intervalId;
 let lapCounter = 1;
+let minDiv = document.getElementById("minutes");
+let secDiv = document.getElementById("second");
+let milliDiv = document.getElementById("milliSec");
+
+
 
 let clockRunning = false;
 
@@ -18,7 +23,9 @@ function lapFunction(){
     if(clockRunning == false){
         return ;
     }
-    let value = timer.innerHTML;   
+    let value = minDiv.innerText;   
+    value+= ":" + secDiv.innerText;     
+    value+= ":" + milliDiv.innerText;     
     let liItem = document.createElement("li");
     liItem.classList.add("lap-li");
     let p1 = document.createElement("p");
@@ -49,7 +56,9 @@ function startButton(){
         var milliString = (milliSec > 9)?(milliSec.toString()):'0'+milliSec;
         var secString = (sec > 9)?(sec.toString()):'0'+sec;
         var minString = (min > 9)?(min.toString()):'0'+min;
-        timer.innerHTML = ` ${minString} : ${secString} : ${milliString} `
+        minDiv.innerHTML = `${minString}`;
+        secDiv.innerHTML = `${secString}`;
+        milliDiv.innerHTML = `${milliString}`;
     },10);
 
     lapButton.setAttribute("id","lap-btn");
@@ -82,7 +91,9 @@ function reset(){
     listElementOfLi.forEach((element)=>{
         element.remove();
     });
-    timer.innerHTML = "00 : 00 : 00";
+    milliDiv.innerText ="00";
+    secDiv.innerText ="00";
+    minDiv.innerText ="00";
     milliSec = 0;
     sec = 0;
     min = 0;

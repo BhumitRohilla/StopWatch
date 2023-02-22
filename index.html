@@ -13,7 +13,13 @@
 <body>
     <div id="main">
         <div id="timer-div">
-            <h1 id="timer">00 : 00 : 00</h1>
+            <h1 id="timer">
+                <div class="timerDivHand" id="minutes">00</div>
+                <div>:</div>
+                <div class="timerDivHand" id="second">00</div>
+                <div>:</div>
+                <div class="timerDivHand" id="milliSec">00</div>
+            </h1>
         </div>
         <div id="btn-holder">
             <button class="gen-btn" id="lap-btn" >Lap</button>
